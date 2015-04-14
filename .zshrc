@@ -82,6 +82,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 alias zy='ssh root@192.168.2.145'
 alias pi='ssh pi@192.168.2.131'
@@ -111,3 +112,9 @@ export HOMEBREW_GITHUB_API_TOKEN=2eaad0520680e877eda8308544fff04e3ed560f2
 alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
 alias boxbuild='go-linux-arm build zahlzbox.go && scp zahlzbox root@192.168.2.110:zahlzbox/zahlzbox'
+alias loadjava='launchctl setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk'
+
+# Docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/moogle/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
