@@ -96,23 +96,18 @@ alias pi='ssh pi@192.168.1.108'
 export LANG=en_US.UTF-8
 
 #Java
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 
 #Godoc
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/texbin:$PATH
 
-source /Users/moogle/Documents/zahlz/go-crosscompile/golang-crosscompile/crosscompile.bash
-
 #Homebrew limit
 export HOMEBREW_GITHUB_API_TOKEN=2eaad0520680e877eda8308544fff04e3ed560f2
 
 #Lock my mac
 alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
-
-alias boxbuild='go-linux-arm build zahlzbox.go && scp zahlzbox root@192.168.2.110:zahlzbox/zahlzbox'
-alias loadjava='launchctl setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk'
 
 # Docker
 export DOCKER_HOST=tcp://192.168.59.103:2376
