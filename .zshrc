@@ -86,14 +86,6 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-alias zy='ssh root@192.168.2.145'
-alias pi='ssh pi@192.168.2.131'
-alias zahlz='ssh zahlz@192.168.2.136'
-alias zyserial='screen /dev/tty.usbserial-210279545083B 115200'
-alias zyser='screen /dev/tty.usbserial-210279545372B 115200'
-alias pi='ssh pi@192.168.1.108'
-
-
 #export LANG=de_DE.UTF-8
 export LANG=en_US.UTF-8
 
@@ -105,8 +97,6 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/texbin:$PATH
 
-#Homebrew limit
-export HOMEBREW_GITHUB_API_TOKEN=d91c84f1ef197ec146f6d14eac6ba1a51d136033
 
 #Lock my mac
 alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
@@ -120,3 +110,5 @@ PERL_MB_OPT="--install_base \"/Users/moogle/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/moogle/perl5"; export PERL_MM_OPT;
 
 alias libressl="/usr/local/Cellar/libressl/2.1.6/bin/openssl"
+
+source .private_zshrc
