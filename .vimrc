@@ -43,6 +43,19 @@ let g:airline_powerline_fonts = 1
 :let g:airline_theme='dark'
 "let g:Powerline_symbols = 'fancy'
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:go_fmt_command = "goimports"
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 set completeopt-=preview
 set laststatus=2
-colorscheme smyck
+let g:molokai_original = 1
+colorscheme molokai
+
+"color max line length
+set colorcolumn=80
+"colorscheme smyck

@@ -6,7 +6,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="daveverwer"
+#ZSH_THEME="daveverwer"
+ZSH_THEME="miloshadzic"
+#ZSH_THEME="minimal"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -104,7 +106,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/texbin:$PATH
 
 #Homebrew limit
-export HOMEBREW_GITHUB_API_TOKEN=2eaad0520680e877eda8308544fff04e3ed560f2
+export HOMEBREW_GITHUB_API_TOKEN=d91c84f1ef197ec146f6d14eac6ba1a51d136033
 
 #Lock my mac
 alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
@@ -113,3 +115,8 @@ alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resourc
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/moogle/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+
+PERL_MB_OPT="--install_base \"/Users/moogle/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/moogle/perl5"; export PERL_MM_OPT;
+
+alias libressl="/usr/local/Cellar/libressl/2.1.6/bin/openssl"
