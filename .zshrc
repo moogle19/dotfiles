@@ -112,3 +112,4 @@ PERL_MM_OPT="INSTALL_BASE=/Users/moogle/perl5"; export PERL_MM_OPT;
 alias libressl="/usr/local/Cellar/libressl/2.1.6/bin/openssl"
 
 source ~/.private_zshrc
+source ~/.gobindings
