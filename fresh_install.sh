@@ -17,3 +17,4 @@ ln -s ${PWD}/.oh-my-zsh ~/.oh-my-zsh
 ln -s ${PWD}/.vim ~/.vim
 ln -s ${PWD}/.vimrc ~/.vimrc
 ln -s ${PWD}/.zshrc ~/.zshrc
+ln -s ${PWD}/.gobindings ~/.gobindings
