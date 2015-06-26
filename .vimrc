@@ -19,6 +19,13 @@ set softtabstop=8
 set noexpandtab
 set autoindent
 set smartindent
+set ignorecase " case-insensitive search
+set smartcase " case-sensitive search if any caps
+
+let mapleader = ','
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+cnoremap w!! %!sudo tee > /dev/null %
 
 set list listchars=tab:»·,trail:·
 set backspace=indent,eol,start
