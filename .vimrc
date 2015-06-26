@@ -20,7 +20,7 @@ set noexpandtab
 set autoindent
 set smartindent
 
-"set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·
 set backspace=indent,eol,start
 
 fun! <SID>StripTrailingWhitespaces()
