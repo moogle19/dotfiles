@@ -113,3 +113,8 @@ alias libressl="/usr/local/Cellar/libressl/2.1.6/bin/openssl"
 
 source ~/.private_zshrc
 source ~/.gobindings
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib/
+export CPATH=$CPATH:/usr/local/include
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
+export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
+export OBJC_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
