@@ -45,7 +45,7 @@ au BufNewFile,BufRead *.json set ft=javascript
 "Syntastic
 "let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
-let g:syntastic_go_checkers = ['go', 'golint']
+let g:syntastic_go_checkers = ['go', 'golint', 'govet']
 let g:airline_powerline_fonts = 1
 :let g:airline_theme='dark'
 "let g:Powerline_symbols = 'fancy'

@@ -1,1 +1,2 @@
+# Test with coverage output to coverage.out, then show it in browser, if done remove coverage file
 alias gocoverage="go test -coverprofile=coverage.out && go tool cover -html=coverage.out && rm coverage.out"

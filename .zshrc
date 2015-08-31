@@ -82,9 +82,11 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Golang Path Settings
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+#export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:/usr/local/go/bin
 
 #export LANG=de_DE.UTF-8
 export LANG=en_US.UTF-8
@@ -93,18 +95,13 @@ export LANG=en_US.UTF-8
 #export JAVA_HOME=$(/usr/libexec/java_home)
 
 #Godoc
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+#export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/texbin:$PATH
 
 
-#Lock my mac
+# Lock my mac
 alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
-
-# Docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/moogle/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
 
 PERL_MB_OPT="--install_base \"/Users/moogle/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/moogle/perl5"; export PERL_MM_OPT;
@@ -113,11 +110,15 @@ alias libressl="/usr/local/Cellar/libressl/2.1.6/bin/openssl"
 
 source ~/.private_zshrc
 source ~/.gobindings
+
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib/
 export CPATH=$CPATH:/usr/local/include
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
 export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
 export OBJC_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
 
-
+# Custom prompt theme (is theme 'miloshadzic' with changed symbol)"
 PROMPT='%{$fg[white]%}%1~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[white]%}$%{$reset_color%} '
+
+/Users/moogle/Documents/private/scripts/motd.bash /Users/moogle/Documents/private/scripts/kiz.txt
+alias vlc="/Users/moogle/Applications/VLC.app/Contents/MacOS/VLC"
