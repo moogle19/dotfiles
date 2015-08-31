@@ -20,8 +20,11 @@ ln -s ${PWD}/.zshrc ~/.zshrc
 ln -s ${PWD}/.gobindings ~/.gobindings
 
 # Disable unneeded homecalling and network advertising services
-sh disable_user_launch_agents.sh
-sh disable_system_launch_agents.sh
+sudo sh disable_user_launch_agents.sh
+sudo sh disable_system_launch_agents.sh
+
+# Remove old/mistrusted cas
+sudo sh remove_unused_root_cas
 
 # Install alternative hosts file with blocked hosts
 sudo mv /etc/hosts /etc/hosts.bak
