@@ -18,3 +18,14 @@ ln -s ${PWD}/.vim ~/.vim
 ln -s ${PWD}/.vimrc ~/.vimrc
 ln -s ${PWD}/.zshrc ~/.zshrc
 ln -s ${PWD}/.gobindings ~/.gobindings
+
+# Disable unneeded homecalling and network advertising services
+sh disable_user_launch_agents.sh
+sh disable_system_launch_agents.sh
+
+# Install alternative hosts file with blocked hosts
+sudo mv /etc/hosts /etc/hosts.bak
+sudo ln -s ${PWD}/hosts /etc/hosts
+
+# Install privoxy for http/web filtering
+sh install_privoxy.sh
