@@ -23,6 +23,7 @@ set ignorecase " case-insensitive search
 set smartcase " case-sensitive search if any caps
 
 let mapleader = ','
+
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 cnoremap w!! %!sudo tee > /dev/null %
@@ -57,6 +58,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+
 
 set completeopt-=preview
 set laststatus=2
@@ -66,3 +69,6 @@ colorscheme molokai
 "color max line length
 set colorcolumn=80
 "colorscheme smyck
+
+"tagbar
+nmap <F8> :TagbarToggle<CR>
