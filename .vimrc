@@ -12,7 +12,7 @@ set encoding=utf-8
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-set nowrap
+set wrap
 set tabstop=8
 set shiftwidth=8
 set softtabstop=8
@@ -21,6 +21,9 @@ set autoindent
 set smartindent
 set ignorecase " case-insensitive search
 set smartcase " case-sensitive search if any caps
+set cursorline
+set incsearch "search during typing
+"set hlsearch " highlight all search results
 
 let mapleader = ','
 
@@ -58,8 +61,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_auto_type_info = 1
-
+"let g:go_auto_type_info = 1
 
 set completeopt-=preview
 set laststatus=2

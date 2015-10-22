@@ -100,6 +100,7 @@ export PATH=/usr/texbin:$PATH
 
 #Lock my mac
 alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+alias cartupdate='carthage update --platform iOS --no-use-binaries'
 
 # Docker
 export DOCKER_HOST=tcp://192.168.59.103:2376
@@ -109,7 +110,7 @@ export DOCKER_TLS_VERIFY=1
 PERL_MB_OPT="--install_base \"/Users/moogle/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/moogle/perl5"; export PERL_MM_OPT;
 
-alias libressl="/usr/local/Cellar/libressl/2.1.6/bin/openssl"
+alias libressl="/usr/local/Cellar/libressl/2.3.0/bin/openssl"
 
 source ~/.private_zshrc
 source ~/.gobindings
