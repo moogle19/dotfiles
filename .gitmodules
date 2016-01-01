@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/vim-swift"]
 	path = .vim/bundle/vim-swift
 	url = https://github.com/kballard/vim-swift.git
+[submodule ".vim/bundle/vim-go-impl"]
+	path = .vim/bundle/vim-go-impl
+	url = https://github.com/rhysd/vim-go-impl.git
