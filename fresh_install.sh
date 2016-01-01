@@ -8,7 +8,7 @@ sudo dnf -y install bash curl erlang ettercap git gnupg2 go htop hub mysql mongo
 
 sudo dnf -y install terminator keepass thunderbird transmission
 
-sudo sh install_hermit.sh
+sh install_fonts.sh
 
 git submodule init && git submodule update
 
