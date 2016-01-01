@@ -1,8 +1,8 @@
+#!/bin/bash
 cd ~/Downloads
-wget https://pcaro.es/d/otf-hermit-1.21.tar.gz
-mkdir hermit
-tar xvf otf-hermit-1.21.tar.gz -C hermit
-scp hermit/Hermit* ~/Library/Fonts
-rm -rf hermit
-rm otf-hermit-1.21.tar.gz
+wget https://github.com/chrissimpkins/Hack/releases/download/v2.018/Hack-v2_018-ttf.zip -O hack.zip
+unzip hack.zip -d hack
+sudo \cp -rf hack /usr/share/fonts/hack
 
+rm -rf hack
+rm -f hack.zip

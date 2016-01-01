@@ -1,20 +1,25 @@
 #!/bin/sh
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor
-brew update
-brew install bash caskroom/cask/brew-cask cabal-install carthage curl erlang ettercap exercism git gnupg2 go homebrew/dupes/grep haskell-stack htop-osx hub libressl mysql mongodb netcat nmap node openssh openssl perl postgresql pstree pv python rebar ruby rust sqlite tmux tree unrar vim wget zsh
-brew cask install alfred appcleaner atext atom beamer brackets chitchat cocoapacketanalyzer controlplane dash disk-inventory-x firefox google-chrome iterm2 itsycal java keepassx keepingyouawake macdown psequel sequel-pro slack smoothmouse spectacle spotify teamviewer textmate the-unarchiver thunderbird transmission tunnelblick virtualbox vlc
-cd ~/Documents
-git clone https://github.com/moogle19/dotfiles.git
-cd dotfiles
-git submodule init && git submodule update
-go get -u github.com/nsf/gocode
-sh install_hermit.sh
+sudo dnf -y  install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
+sudo dnf -y update
+
+sudo dnf -y install bash curl erlang ettercap git gnupg2 go htop hub mysql mongodb nmap-ncat nmap openssh openssl perl postgresql pv python rebar ruby sqlite tmux tree vim wget zsh
+
+sudo dnf -y install terminator keepass thunderbird transmission
+
+sudo sh install_hermit.sh
+
+git submodule init && git submodule update
+
+export GOPATH=~/go
+go get -u github.com/nsf/gocode
 
 ln -s ${PWD}/.oh-my-zsh ~/.oh-my-zsh
 ln -s ${PWD}/.vim ~/.vim
 ln -s ${PWD}/.vimrc ~/.vimrc
 ln -s ${PWD}/.zshrc ~/.zshrc
 ln -s ${PWD}/.gobindings ~/.gobindings
+
+sudo chsh -s /usr/bin/zsh $USER
+
