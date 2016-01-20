@@ -122,3 +122,5 @@ export OBJC_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
 
 
 PROMPT='%{$fg[white]%}%1~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[white]%}$%{$reset_color%} '
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
