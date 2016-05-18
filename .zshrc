@@ -102,11 +102,6 @@ export PATH=/usr/texbin:$PATH
 alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 alias cartupdate='carthage update --platform iOS --no-use-binaries'
 
-# Docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/moogle/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 PERL_MB_OPT="--install_base \"/Users/moogle/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/moogle/perl5"; export PERL_MM_OPT;
 
@@ -124,3 +119,9 @@ export OBJC_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include
 PROMPT='%{$fg[white]%}%1~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[white]%}$%{$reset_color%} '
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+alias grep='ggrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+
+export PATH=$PATH:/Users/moogle/.cache/rebar3/bin
+export HOMEBREW_NO_ANALYTICS=1
+alias startserver='wakeonlan 98:4b:e1:6e:cb:60'
