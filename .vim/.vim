@@ -1,1 +1,0 @@
-/Users/moogle/Documents/dotfiles/.vim

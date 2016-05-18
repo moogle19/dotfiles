@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/vim-go-impl"]
 	path = .vim/bundle/vim-go-impl
 	url = https://github.com/rhysd/vim-go-impl.git
+[submodule ".vim/bundle/vim-signify"]
+	path = .vim/bundle/vim-signify
+	url = https://github.com/mhinz/vim-signify.git

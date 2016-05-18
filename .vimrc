@@ -8,11 +8,21 @@ set encoding=utf-8
 "Golang Linter
 "set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
-"let g:pathogen_disabled = ['supertab']
-
-"run plugins
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" install plugins
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go'
+Plug 'rhysd/vim-go-impl'
+Plug 'nsf/gocode'
+Plug 'mhinz/vim-signify'
+Plug 'kballard/vim-swift'
+Plug 'jimenezrick/vimerl'
+call plug#end()
 
 set wrap
 set tabstop=8 " set tabstop with to 8
