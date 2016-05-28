@@ -74,6 +74,7 @@ let g:airline_powerline_fonts = 1
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 let g:go_fmt_command = "goimports" " use goimports instead of fmt for automatic imports
+"let g:go_fmt_command = "gofmt"
 
 "let g:go_highlight_functions = 1
 "let g:go_highlight_methods = 1
