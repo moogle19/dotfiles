@@ -16,12 +16,15 @@ Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'branch': 'vim-8.0' }
 Plug 'rhysd/vim-go-impl'
 Plug 'nsf/gocode'
 Plug 'mhinz/vim-signify'
 Plug 'kballard/vim-swift'
 Plug 'jimenezrick/vimerl'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+
+
 call plug#end()
 
 set wrap

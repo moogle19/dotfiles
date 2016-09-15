@@ -3,41 +3,41 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
 brew update
-brew install \ 
-	bash \ 
-	caskroom/cask/brew-cask \
-	carthage \
-	curl \
-	erlang \
-	ettercap \
-	git \
-	gnupg2 \
-	go \
-	homebrew/dupes/grep \
-	htop-osx \
-	hub \
-	libressl \
-	mysql \
-	mongodb \
-	netcat \
-	nmap \
-	node \
-	openssh \
-	openssl \
-	perl \
-	postgresql \
-	pstree \
-	pv \
-	python \
-	rebar \
-	ruby \
-	sqlite \
-	tmux \
-	tree \
-	unrar \
-	vim \
-	wget \
-	zsh
+brew install \
+bash \
+caskroom/cask/brew-cask \
+carthage \
+curl \
+erlang \
+ettercap \
+git \
+gnupg2 \
+go \
+homebrew/dupes/grep \
+htop-osx \
+hub \
+libressl \
+mysql \
+mongodb \
+netcat \
+nmap \
+node \
+openssh \
+openssl \
+perl \
+postgresql \
+pstree \
+pv \
+python \
+rebar \
+ruby \
+sqlite \
+tmux \
+tree \
+unrar \
+vim \
+wget \
+zsh
 
 brew cask install \
 	alfred \
