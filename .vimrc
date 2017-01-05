@@ -22,7 +22,9 @@ Plug 'nsf/gocode'
 Plug 'mhinz/vim-signify'
 Plug 'kballard/vim-swift'
 Plug 'jimenezrick/vimerl'
+Plug 'elixir-lang/vim-elixir'
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'ctrlpvim/ctrlp.vim'
 
 
 call plug#end()
@@ -97,8 +99,18 @@ let g:molokai_original = 1
 colorscheme molokai
 
 "color max line length
-set colorcolumn=80
+set colorcolumn=100
 "colorscheme smyck
 
 "tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" DISABLE ARROW KEYS!!!!!!!!!!!!!!!!
+noremap! <Up> <NOP>
+noremap! <Down> <NOP>
+noremap! <Left> <NOP>
+noremap! <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>

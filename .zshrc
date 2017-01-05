@@ -125,3 +125,6 @@ alias grep='ggrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 export PATH=$PATH:/Users/moogle/.cache/rebar3/bin
 export HOMEBREW_NO_ANALYTICS=1
 alias startserver='wakeonlan 98:4b:e1:6e:cb:60'
+
+# added by travis gem
+[ -f /Users/kevin/.travis/travis.sh ] && source /Users/kevin/.travis/travis.sh
