@@ -17,55 +17,42 @@ homebrew/dupes/grep \
 htop-osx \
 hub \
 libressl \
-mysql \
-mongodb \
+mksh \
 netcat \
 nmap \
-node \
 openssh \
 openssl \
 perl \
-postgresql \
 pstree \
 pv \
 python \
-rebar \
 ruby \
 sqlite \
 tmux \
 tree \
 unrar \
 vim \
-wget \
-zsh
+wget
 
 brew cask install \
 	alfred \
 	appcleaner \
 	atext \
-	beamer \
 	cocoapacketanalyzer \
-	controlplane \
 	dash \
 	disk-inventory-x \
 	firefox \
 	google-chrome \
-	iterm2 \
 	itsycal \
 	keepassx \
-	keepingyouawake \
 	macdown \
-	psequel \
-	sequel-pro \
 	slack \
-	smoothmouse \
 	spotify \
 	teamviewer \
 	textmate \
 	the-unarchiver \
 	thunderbird \
 	transmission \
-	tunnelblick \
 	virtualbox \
 	vlc
 
@@ -77,8 +64,7 @@ go get -u github.com/nsf/gocode
 sh install_mononoki.sh
 
 
-ln -s ${PWD}/.oh-my-zsh ~/.oh-my-zsh
 ln -s ${PWD}/.vim ~/.vim
 ln -s ${PWD}/.vimrc ~/.vimrc
-ln -s ${PWD}/.zshrc ~/.zshrc
+ln -s ${PWD}/.mkshrc ~/.mkshrc
 ln -s ${PWD}/.gobindings ~/.gobindings
