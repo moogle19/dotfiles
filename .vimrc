@@ -8,7 +8,7 @@ set encoding=utf-8
 "Golang Linter
 "set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
-" install plugins
+" install plugins call 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -81,12 +81,12 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:go_fmt_command = "goimports" " use goimports instead of fmt for automatic imports
 "let g:go_fmt_command = "gofmt"
 
-"let g:go_highlight_functions = 1
-"let g:go_highlight_methods = 1
-"let g:go_highlight_structs = 1
-"let g:go_highlight_operators = 1
-"let g:go_highlight_build_constraints = 1
-"let g:go_auto_type_info = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
 
 " set go specific shortcuts
 au FileType go nmap <leader>i <Plug>(go-info)
@@ -95,8 +95,8 @@ au FileType go nmap <leader>e <Plug>(go-rename)
 
 set completeopt-=preview
 set laststatus=2 " show statusbar always
-let g:molokai_original = 1
-colorscheme molokai
+"let g:molokai_original = 1
+"colorscheme molokai
 
 "color max line length
 set colorcolumn=100
@@ -114,3 +114,31 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
