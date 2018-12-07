@@ -1,110 +1,100 @@
+" Enable syntax highlighting
 syntax on
+" Show line numbers
 set number
+" Show line and column in lower right corner
 set ruler
-filetype plugin on
-
+" Determine filetype based on name an content and
+" use it for plugins and autoindentation
+filetype indent plugin on
+" Set default encoding to utf-8
 set encoding=utf-8
-
-"Golang Linter
-"set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
 " install plugins call 
 call plug#begin()
+" Fuzzy search
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+" File tree
 Plug 'scrooloose/nerdtree'
+" Syntax highlighting
 Plug 'scrooloose/syntastic'
-Plug 'ervandew/supertab'
-Plug 'majutsushi/tagbar'
+" Tab autocompletion
+Plug 'ervandew/supertab' 
+" Nicer status line
 Plug 'vim-airline/vim-airline'
+" Show git changes in vim
 Plug 'tpope/vim-fugitive'
-Plug 'fatih/vim-go', { 'branch': 'vim-8.0' }
+" Go support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'branch': 'master' }
+" Go Impl support
 Plug 'rhysd/vim-go-impl'
-Plug 'nsf/gocode'
+" Go autocompletion
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" Show diffs in vim
 Plug 'mhinz/vim-signify'
+" Swift support
 Plug 'kballard/vim-swift'
+" Erlang support
 Plug 'jimenezrick/vimerl'
+" Elixir support
 Plug 'elixir-lang/vim-elixir'
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-Plug 'ctrlpvim/ctrlp.vim'
-
-
+" Run compiler etc. async
+Plug 'tpope/vim-dispatch'
+" Javascript support
+Plug 'pangloss/vim-javascript'
+" Plantuml syntax highlighting
+Plug 'aklt/plantuml-syntax'
+" Toml syntax highlighting
+Plug 'cespare/vim-toml'
+" Elm support
+Plug 'elmcast/elm-vim'
+" Rust support
+Plug 'rust-lang/rust.vim'
+" Rust autocompletion
+Plug 'racer-rust/vim-racer'
 call plug#end()
 
+" Wrap text when line is to long to display
 set wrap
-set tabstop=8 " set tabstop with to 8
-set shiftwidth=8
-set softtabstop=8
+" Set tabstop to display as 4 spaces
+set tabstop=4
+" Set shift width to same as tabstop
+set shiftwidth=4
+" Set soft-tabstop to same as tabstop
+set softtabstop=4
+" Do NOT expand tabs to spaces
 set noexpandtab
+
+" Use same indentation as line before
 set autoindent
+" Indent source code after braces etc.
 set smartindent
-set ignorecase " case-insensitive search
-set smartcase " case-sensitive search if any caps
-set cursorline " hightlight current line
-set incsearch "search during typing
-"set hlsearch " highlight all search results
-set autoread  " Automatically read fileupdates from disk
-
-let mapleader = ',' " set leader to ,
-
-nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
-
-" set w!! to sudo write file
-cnoremap w!! %!sudo tee > /dev/null %
-
-" show tabs with »
-set list listchars=tab:»·,trail:·
+" Allow backspacing autoindentation, line breaks and start of insert
 set backspace=indent,eol,start
 
-" remove all trailing whitespaces on write
-"fun! <SID>StripTrailingWhitespaces()
-"    let l = line(".")
-"    let c = col(".")
-"    %s/\s\+$//e
-"    call cursor(l, c)
-"endfun
-"autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+" Ignore case while searching
+set ignorecase
+" when using caps, search case-sensitive
+set smartcase
+" Search text while typing
+set incsearch "search during typing
+" Highlight search results while searching
+set hlsearch
 
-au FileType make set noexpandtab
+" Underline the current line the cursor is in
+set cursorline
+" Reload file after running a command, which changes the file
+set autoread
 
-" highlight json with javascript
-au BufNewFile,BufRead *.json set ft=javascript
-
-"Syntastic
-"let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-let g:syntastic_go_checkers = ['golint']
-let g:airline_powerline_fonts = 1
-:let g:airline_theme='dark'
-"let g:Powerline_symbols = 'fancy'
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
-let g:go_fmt_command = "goimports" " use goimports instead of fmt for automatic imports
-"let g:go_fmt_command = "gofmt"
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-" set go specific shortcuts
-au FileType go nmap <leader>i <Plug>(go-info)
-au FileType go nmap <leader>e <Plug>(go-rename)
-
-
+" Remove preview window for auto completion
 set completeopt-=preview
-set laststatus=2 " show statusbar always
-"let g:molokai_original = 1
-"colorscheme molokai
+" Always show statusbar
+set laststatus=2
 
 "color max line length
-set colorcolumn=100
-"colorscheme smyck
+set colorcolumn=80
 
-"tagbar
-nmap <F8> :TagbarToggle<CR>
-
-" DISABLE ARROW KEYS!!!!!!!!!!!!!!!!
+" Disable arrow keys in vim
 noremap! <Up> <NOP>
 noremap! <Down> <NOP>
 noremap! <Left> <NOP>
@@ -114,30 +104,72 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-    \ }
+" Set 'leader' key to ','
+let mapleader = ','
+
+"" Nerdtree
+" Toggle nerdtree
+nnoremap <leader>d :NERDTreeToggle<CR>
+" Show current file in nerdtree
+nnoremap <leader>f :NERDTreeFind<CR>
+
+"" fzf
+" Search open buffers
+nmap ; :Buffers<CR>
+" Search all files
+nmap <Leader>t :Files<CR>
+
+" set w!! to sudo write file
+cnoremap w!! %!sudo tee > /dev/null %
+
+" Do not expand tabs in makefiles
+au FileType make set noexpandtab
+
+" highlight json with javascript
+au BufNewFile,BufRead *.json set ft=javascript
+
+
+"" Syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_go_checkers = ['golint']
+
+"" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+
+"" Supertab
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+"" vim-go
+
+" Use goimports as `go fmt` command
+let g:go_fmt_command = "goimports" " use goimports instead of fmt for automatic imports
+ 
+" Hightlight go functions
+let g:go_highlight_functions = 1
+" Hightlight go methods
+let g:go_highlight_methods = 1
+" Hightlight go structs
+let g:go_highlight_structs = 1
+" Hightlight go operators
+let g:go_highlight_operators = 1
+" Hightlight go build constraints
+let g:go_highlight_build_constraints = 1
+" Show go errors, command results etc. as quickfix
+let g:go_list_type = "quickfix"
+
+" Show information about object under the cursor
+au FileType go nmap <leader>i <Plug>(go-info)
+" Rename object under the cursor
+au FileType go nmap <leader>e <Plug>(go-rename)
+" Build go file 
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+" Run go file
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+"" rust
+
+" Run rustfmt on save
+let g:rustfmt_autosave = 1
+" Set path to racer (autocompletion)
+let g:racer_cmd = "/Users/kevin/.cargo/bin/racer"
