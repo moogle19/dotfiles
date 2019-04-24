@@ -1,3 +1,5 @@
+" Color scheme
+" colorscheme molokai
 " Enable syntax highlighting
 syntax on
 " Show line numbers
@@ -52,6 +54,25 @@ Plug 'elmcast/elm-vim'
 Plug 'rust-lang/rust.vim'
 " Rust autocompletion
 Plug 'racer-rust/vim-racer'
+" Postgres
+Plug 'ivalkeen/vim-simpledb'
+Plug 'blindFS/vim-taskwarrior'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'sebastianmarkow/deoplete-rust'
+Plug 'Shougo/neopairs.vim'
+Plug 'cespare/vim-toml'
+Plug 'godlygeek/tabular'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'elzr/vim-json'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 " Wrap text when line is to long to display
@@ -93,6 +114,9 @@ set laststatus=2
 
 "color max line length
 set colorcolumn=80
+
+" Background for macvim
+set background=dark
 
 " Disable arrow keys in vim
 noremap! <Up> <NOP>
@@ -167,9 +191,20 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 " Run go file
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
+" Use spaces for yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 "" rust
 
 " Run rustfmt on save
 let g:rustfmt_autosave = 1
 " Set path to racer (autocompletion)
-let g:racer_cmd = "/Users/kevin/.cargo/bin/racer"
+le:racer_cmd = "/Users/kevin/.cargo/bin/racer"
+let g:deoplete#sources#rust#racer_binary='/Users/kevin/.cargo/bin/racer'
+let g:racer_experimental_completer = 1
+
+let g:deoplete#enable_at_startup = 1
+
+let g:rainbow_active = 1
+let g:neopairs#enable = 1
+call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
