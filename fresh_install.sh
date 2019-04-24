@@ -102,7 +102,6 @@ cd ~/Documents
 git clone https://github.com/moogle19/dotfiles.git
 cd dotfiles
 git submodule init && git submodule update
-go get -u github.com/nsf/gocode
 sh install_mononoki.sh
 
 # Neovim setup
@@ -110,8 +109,5 @@ mkdir -p $HOME/.config/nvim
 ln -s ${PWD}/init.vim $HOME/.config/nvim/init.vim
 
 # ZSH setup
-
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 ln -s ${PWD}/.zshrc $HOME/.zshrc
