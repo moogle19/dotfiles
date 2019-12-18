@@ -1,58 +1,71 @@
 " Plugins
+if &compatible
+  set nocompatible
+endif
 
+" Add dein package manager to runtime path
 set runtimepath+=~/.config/nvim/plugins/repos/github.com/Shougo/dein.vim
 
-call dein#begin("~/.config/nvim/plugins")
-call dein#add('Shougo/dein.vim')
+if dein#load_state('~/.config/nvim/plugins')
+  call dein#begin("~/.config/nvim/plugins")
+  call dein#add('~/.config/nvim/plugins/repos/github.com/Shougo/dein.vim')
+  
+  " Appearence
+  	" Vim-Airline
+      call dein#add('vim-airline/vim-airline')
+  	" Colored braces
+  	call dein#add('luochen1990/rainbow')
+  
+  " Programming
+  	" Golang
+  	call dein#add('deoplete-plugins/deoplete-go', {'do': 'make'})
+  	" Rust
+  	call dein#add('sebastianmarkow/deoplete-rust')
+      " Git Diff
+      call dein#add('airblade/vim-gitgutter')
+      " Comment/Uncomment text
+  	call dein#add('tpope/vim-commentary')
+  	" Display Function Signatures
+  	call dein#add('Shougo/echodoc.vim')
+  	" Syntax Highlighting for a ton of languages
+  	call dein#add('sheerun/vim-polyglot')
+  	" Golang support
+  	call dein#add('fatih/vim-go', {'do': ':GoUpdateBinaries', 'rev': 'master'})
+  	" Snippets
+      call dein#add('Shougo/neosnippet')
+      call dein#add('Shougo/neosnippet-snippets')
+  	"Close all braces
+  	call dein#add('Shougo/neopairs.vim')
+  	" Rust autocompletion
+  	call dein#add('racer-rust/vim-racer')
+  	" Rust support
+  	call dein#add('rust-lang/rust.vim')
+  
+  	" Usability
+  	" reopen files at last edit position
+      call dein#add('dietsche/vim-lastplace')
+      " Mark Trailing Whitespaces
+      call dein#add('ntpeters/vim-better-whitespace')
+      " Fuzzy Finder And Stuff, used for LanguageClient
+  	" call dein#add('Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'})
+  	" File tree
+  	call dein#add('scrooloose/nerdtree')
+  	" Autocompletiong
+  	call dein#add('Shougo/deoplete.nvim')
+  " Elixir support
+  call dein#add('elixir-editors/vim-elixir')
+  call dein#add('mhinz/vim-mix-format', {'merged': 0})
+  call dein#add('slashmili/alchemist.vim')
 
-" Appearence
-	" Vim-Airline
-    call dein#add('vim-airline/vim-airline')
-    " Vim-Airline Theme
-	call dein#add('chrisduerr/vim-undead')
-	" Colored braces
-	call dein#add('luochen1990/rainbow')
-
-" Programming
-    " Rust
-	"call dein#add('autozimu/LanguageClient-neovim', {'rev': 'next', 'build': 'bash install.sh'})
-	" Golang
-	call dein#add('deoplete-plugins/deoplete-go', {'do': 'make'})
-	" Rust
-	call dein#add('sebastianmarkow/deoplete-rust')
-    " Git Diff
-    call dein#add('airblade/vim-gitgutter')
-    " Comment/Uncomment text
-	call dein#add('tpope/vim-commentary')
-	" Display Function Signatures
-	call dein#add('Shougo/echodoc.vim')
-	" Syntax Highlighting for a ton of languages
-	call dein#add('sheerun/vim-polyglot')
-	" Golang support
-	call dein#add('fatih/vim-go', {'do': ':GoUpdateBinaries', 'rev': 'master'})
-	" Snippets
-    call dein#add('Shougo/neosnippet')
-    call dein#add('Shougo/neosnippet-snippets')
-	"Close all braces
-	call dein#add('Shougo/neopairs.vim')
-	" Rust autocompletion
-	call dein#add('racer-rust/vim-racer')
-	" Rust support
-	call dein#add('rust-lang/rust.vim')
-
-	" Usability
-	" reopen files at last edit position
-    call dein#add('dietsche/vim-lastplace')
-    " Mark Trailing Whitespaces
-    call dein#add('ntpeters/vim-better-whitespace')
-    " Fuzzy Finder And Stuff, used for LanguageClient
-	" call dein#add('Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'})
-	" File tree
-	call dein#add('scrooloose/nerdtree')
-	" Autocompletiong
-	call dein#add('Shougo/deoplete.nvim')
-
-call dein#end()
+  "CtrlP support
+  call dein#add('ctrlpvim/ctrlp.vim')
+  "FZF
+  call dein#add('junegunn/fzf.vim')
+  call dein#add('junegunn/fzf')
+  
+  call dein#end()
+  call dein#save_state()
+endif
 
 " Determine filetype based on name an content and
 " use it for plugins and autoindentation
@@ -96,6 +109,7 @@ set noshowmode
 
 " Don't open preview window after completion
 set completeopt-=preview
+set completeopt+=noinsert,noselect
 
 " Wrap text when line is to long to display
 set wrap
@@ -295,9 +309,18 @@ let g:rustfmt_autosave = 1
     " Echodoc
     let g:echodoc_enable_at_startup = 1
 
-    " Deoplete
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_smart_case = 1
+" Deoplete
+" Setup TAB to work for neosnippet and deoplete
+  function! TabKeyFunc() abort
+      if pumvisible()
+          return "\<C-N>"
+      else
+          return "\<TAB>"
+      endif
+  endfunction
+  imap <expr><TAB> TabKeyFunc()
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_smart_case = 1
 
 	let g:go_def_mode='gopls'
 
@@ -307,3 +330,9 @@ let g:rustfmt_autosave = 1
 
 	let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 	let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+" Elixir Format
+let g:mix_format_on_save = 1
+
+" CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/deps/*,*/_build/*
