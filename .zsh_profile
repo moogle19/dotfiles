@@ -1,0 +1,15 @@
+VIM=nvim
+
+cdpath=($HOME/Documents/zahlz/repos/backend $HOME/Documents/q1/repos $HOME/Documents/zahlz/repos/mobile $HOME/Documents/repos)
+
+export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 2097152"
+export PLUG_EDITOR=vscode-insiders://file/__FILE__:__LINE__
+export PATH=$HOME/.elixir-ls:$PATH
+# pnpm
+export PNPM_HOME="/Users/kevin/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+export PATH=/Users/kevin/.local/bin:$PATH
+export KERL_BUILD_DOCS=yes
+
+. $HOME/.asdf/asdf.sh
