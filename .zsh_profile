@@ -13,3 +13,7 @@ export PATH=/Users/kevin/.local/bin:$PATH
 export KERL_BUILD_DOCS=yes
 
 . $HOME/.asdf/asdf.sh
+
+alias vim=nvim
+alias zshr="source ~/.zshrc"
+alias vimc="cd $HOME/.config/nvim/lua/moogle && nvim init.lua"
