@@ -7,33 +7,6 @@ require("mason-lspconfig").setup({
     automatic_installation = false,
 })
 
-local augroup = vim.api.nvim_create_augroup
-local moogleGroup = augroup('moogle', {})
-
-local autocmd = vim.api.nvim_create_augroup
-local yank_group = augroup('HighlightYank', {})
-
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
-
--- Autocmd('TextYankPost', {
---     group = yank_group,
---     pattern = '*',
---     callback = function()
---         vim.highlight.on_yank({
---             higroup = 'IncSearch',
---             timeout = 40
---         })
---     end,
--- })
--- 
--- Autocmd({"BufWritePre"}, {
---     group = moogleGroup,
---     pattern = "*",
---     command = "%s/\\s\\+$//e",
--- })
-
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
@@ -44,8 +17,20 @@ require("nvim-treesitter.configs").setup({
     auto_install = false,
     highlight = {
         enable = true
-    },
+    }
 })
+
+require('telescope').setup {
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+        }
+    }
+}
+require('telescope').load_extension('fzf')
 
 local colorscheme = 'colorscheme rose-pine'
 vim.cmd(colorscheme)
@@ -124,8 +109,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
-local select_opts = {behavior = cmp.SelectBehavior.Select}
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -156,11 +139,11 @@ cmp.setup({
     end,
   },
   mapping = {
-    ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
-    ['<Down>'] = cmp.mapping.select_next_item(select_opts),
+    ['<Up>'] = cmp.mapping.select_prev_item(),
+    ['<Down>'] = cmp.mapping.select_next_item(),
 
-    ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
-    ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
 
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -185,20 +168,18 @@ cmp.setup({
     end, {'i', 's'}),
 
     ['<Tab>'] = cmp.mapping(function(fallback)
-      local col = vim.fn.col('.') - 1
-
       if cmp.visible() then
-        cmp.select_next_item(select_opts)
-      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        fallback()
+        cmp.select_next_item()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
       else
-        cmp.complete()
+        fallback()
       end
     end, {'i', 's'}),
 
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_prev_item(select_opts)
+        cmp.select_prev_item()
       else
         fallback()
       end
