@@ -33,8 +33,7 @@ brew "wget"
 brew "zsh"
 
 cask "kitty"
-cask "google-chrome-beta"
-cask "visual-studio-code-insider"
+cask "visual-studio-code-insiders"
 
 mas "1Password", id: 1333542190
 mas "Xcode", id: 497799835
