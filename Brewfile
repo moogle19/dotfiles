@@ -34,6 +34,7 @@ brew "zsh"
 
 cask "kitty"
 cask "visual-studio-code-insiders"
+cask "spotify"
 
 mas "1Password", id: 1333542190
 mas "Xcode", id: 497799835
