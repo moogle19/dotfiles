@@ -1,14 +1,6 @@
+require("moogle.packer")
 require("moogle.set")
 require("moogle.remap")
-require("moogle.packer")
-
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-vim.opt.termguicolors = true
 
 -- NVIM Tree
 require("nvim-tree").setup({
@@ -44,7 +36,18 @@ require('telescope').setup {
         }
     }
 }
+
 require('telescope').load_extension('fzf')
+
+
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.opt.termguicolors = true
 
 -- Colorscheme
 local colorscheme = 'colorscheme rose-pine'
