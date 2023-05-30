@@ -1,6 +1,6 @@
 VIM=nvim
 
-cdpath=($HOME/Documents/zahlz/repos/backend $HOME/Documents/q1/repos $HOME/Documents/zahlz/repos/mobile $HOME/Documents/repos)
+cdpath=($HOME/Developer/zahlz/repos/backend $HOME/Developer/q1/repos $HOME/Developer/zahlz/repos/mobile $HOME/Developer/repos)
 
 export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 2097152"
 export PLUG_EDITOR=vscode-insiders://file/__FILE__:__LINE__
