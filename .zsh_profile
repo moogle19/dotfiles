@@ -2,26 +2,23 @@ VIM=nvim
 
 cdpath=($HOME/Developer/zahlz/repos/backend $HOME/Developer/q1/repos $HOME/Developer/zahlz/repos/mobile $HOME/Developer/repos)
 
+# Global Exports
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 2097152"
-export PLUG_EDITOR=vscode-insiders://file/__FILE__:__LINE__
-export PATH=$HOME/.elixir-ls:$PATH
-# pnpm
-export PNPM_HOME="/Users/kevin/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 export PATH=/Users/kevin/.local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
-export CPLUS_INCLUDE_PATH=~/.asdf/installs/erlang/25.2.1/usr/include:$CPLUS_INCLUDE_PATH
-export CXXFLAGS=-std=c++20
-export KERL_BUILD_DOCS=yes
 
+# ASDF for version management
 . $HOME/.asdf/asdf.sh
 
+# Aliases
 alias vim=nvim
 alias zshr="source ~/.zshrc"
 alias vimc="cd $HOME/.config/nvim/lua/moogle && nvim init.lua"
 alias derived_clean="rm -rf $HOME/Library/Developer/Xcode/DerivedData/"
 
+# Ruby stuff
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
@@ -31,5 +28,17 @@ if which ruby > /dev/null && which gem > /dev/null; then
   GEM_PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
   export PATH="$GEM_PATH:$PATH"
 fi
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+
+# VCS
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%F{250}(%b%u%c)%f '
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ' %{%F{red}%B%}●%{%b%f%}'
+zstyle ':vcs_info:*' stagedstr ' %{%F{green}%B%}●%{%b%f%}'
+
+# Prompt
+PROMPT='%B%F{blue}%1~%f%b ${vcs_info_msg_0_}%(?.%F{green}%#.%F{red}[%?]%#)%f '
