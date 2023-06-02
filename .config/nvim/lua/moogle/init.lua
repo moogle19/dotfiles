@@ -37,6 +37,8 @@ require('telescope').setup {
     }
 }
 
+require("moogle.lualine")
+
 require('telescope').load_extension('fzf')
 
 
