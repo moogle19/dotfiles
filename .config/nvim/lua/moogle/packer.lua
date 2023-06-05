@@ -35,20 +35,53 @@ return require('packer').startup(function(use)
     }
 
     use({
+      "folke/trouble.nvim",
+      config = function()
+          require("trouble").setup {
+              icons = false,
+              -- your configuration comes here
+              -- or leave it empty to use the default settings
+              -- refer to the configuration section below
+          }
+      end
+    })
+
+    use({
         'rose-pine/neovim',
         as = 'rose-pine',
         config = function()
-            local colorscheme = 'colorscheme rose-pine'
-            vim.cmd(colorscheme)
+            vim.cmd('colorscheme rose-pine')
         end
     })
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('tpope/vim-fugitive')
+    use("mbbill/undotree")
     use('tpope/vim-commentary')
     use { 
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+          -- LSP Support
+          {'neovim/nvim-lspconfig'},             -- Required
+          {                                      -- Optional
+            'williamboman/mason.nvim',
+            run = function()
+              pcall(vim.cmd, 'MasonUpdate')
+            end,
+          },
+          {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+          -- Autocompletion
+          {'hrsh7th/nvim-cmp'},     -- Required
+          {'hrsh7th/cmp-nvim-lsp'}, -- Required
+          {'L3MON4D3/LuaSnip'},     -- Required
+    }
+}
 end)
 
