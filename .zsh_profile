@@ -8,6 +8,8 @@ export LC_ALL=en_US.UTF-8
 export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 2097152"
 export PATH=/Users/kevin/.local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
+export PATH=/Users/kevin/Developer/flutter/bin:$PATH # Flutter
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # ASDF for version management
 . $HOME/.asdf/asdf.sh
@@ -17,17 +19,12 @@ alias vim=nvim
 alias zshr="source ~/.zshrc"
 alias vimc="cd $HOME/.config/nvim/lua/moogle && nvim init.lua"
 alias derived_clean="rm -rf $HOME/Library/Developer/Xcode/DerivedData/"
+alias weather="curl wttr.in/Georgsmarienhuette"
 
-# Ruby stuff
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
-fi
-
-if which ruby > /dev/null && which gem > /dev/null; then
-  GEM_PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
-  export PATH="$GEM_PATH:$PATH"
-fi
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
 
 # VCS
 autoload -Uz vcs_info
